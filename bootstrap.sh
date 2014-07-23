@@ -10,6 +10,6 @@ git submodule update --recursive
 git clean -df
 
 # Copy dotfiles, overwrites stuff
-rsync --exclude ".git/" --exclude "bootstrap.sh" --exclude "README.md" -avh --no-perms . ~;
+rsync --exclude ".git/" --exclude "bootstrap.sh" --exclude "README.md" --suffix="~$(date +%y%m%d)" -avhb --no-perms . ~;
 
 chsh -s $(which zsh)
